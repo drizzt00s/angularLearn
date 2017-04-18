@@ -1,27 +1,29 @@
 import angular from 'angular';
 import uirouter from 'angular-ui-router';
+import homeRoute from './views/home/homeController';
+import otherRoute from './views/other/otherController';
 
 var mainModule = angular.module('app', [uirouter]);
 
-import homeCtrl from './views/home/homeController.js';
-import otherCtrl from './views/other/otherController.js';
+homeRoute();
+otherRoute();
 
 mainModule.config(function($stateProvider, $urlRouterProvider){
 	$stateProvider.state('home', {
 		url:'/home',
 		templateUrl:'views/home/home.html',
-		controller:homeCtrl
+		controller:'homeCtl'
 	
 	})
 	.state('other', {
 		url:'/other',
 		templateUrl:'views/other/other.html',
-		controller:otherCtrl
-
+		controller:'otherCtl'
 	});
 
-	$urlRouterProvider.otherwise('/home');
+	$urlRouterProvider.otherwise('/other');
 })
+
 .run(function($rootScope){
 });
 

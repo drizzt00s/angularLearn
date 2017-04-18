@@ -1,3 +1,9 @@
-module.exports = angular.module('app').controller('otherCtl', function($scope){
-	alert('otherCtl');
-});
+function otherRoute(){
+	angular.module('app')
+	.controller('otherCtl', function($scope){
+		//alert('otherCtl!!!');
+		console.log('otherCtl');
+	});
+}
+
+export default otherRoute;
