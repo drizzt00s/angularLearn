@@ -23,7 +23,42 @@ mainModule.config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise('/other');
 })
-
 .run(function($rootScope){
-});
+	console.log('main module runs');
+})
+.controller('calcContoller', function($scope){
+	$scope.price = 12;
+	$scope.num = 1;
+
+	$scope.totalPrice = function(){
+		return $scope.price * $scope.num;
+	};
+
+	$scope.totalPrice2 = $scope.price * $scope.num;
+
+	$scope.$watch('price', function(newVal, oldVal){
+		$scope.totalPrice2 = newVal * $scope.num;
+	});
+	$scope.$watch('num', function(newVal, oldVal){
+		$scope.totalPrice2 = newVal * $scope.price;
+	});
+})
+.controller('userController', function($scope, $log){
+	$scope.name = 'admin';
+	$scope.pword = '123456';
+
+	$log.info('userController->name:' + $scope.name);
+	$log.info('userController->pword:' + $scope.pword);
+
+})
+.controller('infoController', function($scope, $log){
+	$scope.love = '足球';
+
+	$log.info('infoController->love:' + $scope.love);
+	$log.info('infoController->name:' + $scope.name);
+	$log.info('infoController->pword:' + $scope.pword);
+
+})
+
+
 

@@ -4,15 +4,41 @@
 
 <script src='./src/bundle.js'></script>
 
-<!--
-<script src='./views/other/otherController.js'></script>
-<script src='./views/home/homeController.js'></script>
--->
-
 </head>
-<body>
-<div>
+<body ng-controller='calcContoller'>
+<div>单价<input type='number' ng-model='price' /></div>
+<div>数量<input type='number' ng-model='num' /></div>
+<div>总价:{{totalPrice()}}</div>
+<div>总价2:{{totalPrice2}}</div>
+
+
+<input type='text' ng-model='uname' />
+<div ng-bind='uname'></div>
+<div ng-init="person={'name':'Jane'};arr=['angularjs', 'jquery', 'dojo']">
+	<div>{{person.name}}</div>
+	<div>{{arr[2]}}</div>
 </div>
+
+
+<div ng-controller='userController' style='border:#ccc solid 1px'>
+	用户名:<input type='text' ng-model='name' placeholder='用户名' /><br />
+	密码:<input type='password' ng-model='pword' placeholder='密码' /><br />
+	<button>提交</button>
+	<p>您输入的用户名{{name}}</p>
+	<p>您输入的密码{{pword}}</p>
+</div>
+
+<div ng-controller='infoController' style='border:#ccc solid 1px'>
+	个人爱好:<input type='text' ng-model='love' placeholder='个人爱好' /><br />
+	<p>您输入的个人爱好{{love}}</p>
+
+</div>
+
+
+
+
+
+
 <ui-view></ui-view>
 </body>
  </html>
